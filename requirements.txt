@@ -24,3 +24,7 @@ stopit==1.1.1
 suds-jurko==0.6
 wavio==0.0.4
 Werkzeug==1.0.1
+librosa>=0.8.0
+transformers>=4.3.0
+vosk>=0.3.21
+torch>=1.7.1

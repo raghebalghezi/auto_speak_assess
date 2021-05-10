@@ -21,10 +21,17 @@
     </div>
 {% endif %}
 
-    {% if transcript != "" %}
-        <div id="speechTranscriptContainer">
-            <h1>Transcript</h1>
-            <p id="speechText">{{ transcript }}</p>
+    {% if transcript_kaldi != "" %}
+        <div id="speechTranscriptContainer_kaldi">
+            <h1>Transcript1</h1>
+            <p id="speechText_kaldi">{{ transcript_kaldi }}</p>
+        </div>
+    {% endif %}
+
+    {% if transcript_wav2vec != "" %}
+        <div id="speechTranscriptContainer_wav2vec">
+            <h1>Transcript2</h1>
+            <p id="speechText_wav2vec">{{ transcript_wav2vec }}</p>
         </div>
     {% endif %}
 
