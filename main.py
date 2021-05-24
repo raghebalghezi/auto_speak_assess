@@ -38,21 +38,13 @@ def index():
 
         file = request.files["file"]
         filename = secure_filename(file.filename)
-        # print(file, type(file))
         file.save(f'upload/{filename}')
-
         if file.filename == "":
             return redirect(request.url)
-        
-        # r = sr.Recognizer()
-        # with sr.AudioFile(f'upload/{filename}') as source:
-        #     audio = r.record(source)  # read the entire audio file
-
-        # transcript = r.recognize_google(audio, show_all=False, language="fi")
-        audio, sr = librosa.load(os.path.join('upload',filename))
+        audio, sr = librosa.load(os.path.join('upload',filename), sr=16000)
         transcript_kaldi, transcript_wav2vec = asr(kaldi_path=kaldi_path, w2v_model=w2v_model, \
             w2v_processor=w2v_processor, audio=audio, sr=sr)
-
+            
         fluency_info = calc_fluency()
         task_achievement = f" {random.choice([1,2,3])} out of 3 (unreal score)"
         range = f"{random.choice([1,2,3])} out of 3 (unreal score)"
